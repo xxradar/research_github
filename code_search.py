@@ -21,8 +21,8 @@ def search_github_code(keyword, token):
         return None
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python github_search.py <keyword> [max_results]")
+    if len(sys.argv) < 1:
+        print("Usage: python github_search.py <keyword> ")
         sys.exit(1)
 
     keyword = sys.argv[1]
