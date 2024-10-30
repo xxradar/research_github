@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: poutine - GitHub Actions SAST
-        uses: boostsecurityio/poutine-action@v0# Pin to a specific version or SHA
+        uses: boostsecurityio/poutine-action@v0.15.2 # Pin to a specific version or SHA
         with:
           output: results.sarif  # Ensure SARIF output matches expected location
 
