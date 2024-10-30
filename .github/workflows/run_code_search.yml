@@ -13,6 +13,8 @@ jobs:
       security-events: write
       contents: read
     steps:
+    - name: Run Cimon
+      uses: cycodelabs/cimon-action@v0 
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 #################################################################################################
     - name: poutine - GitHub Actions SAST
@@ -24,8 +26,10 @@ jobs:
         sarif_file: results.sarif
   run-code-search:
     runs-on: ubuntu-latest
-
     steps:
+    - name: Run Cimon
+      uses: cycodelabs/cimon-action@v0 
+      
     - name: Checkout repository
       uses: actions/checkout@v4
 
