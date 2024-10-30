@@ -53,3 +53,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         python code_search.py code langchain
+        curl https://api.openai.com
+        
