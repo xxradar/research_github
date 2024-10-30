@@ -25,7 +25,7 @@ jobs:
           output: results.sarif  # Ensure SARIF output matches expected location
 
       - name: Upload poutine SARIF file
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: results.sarif
 
