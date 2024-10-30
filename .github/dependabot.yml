@@ -10,6 +10,7 @@ updates:
     # Check the Python package index (PyPI) for updates every day (weekdays)
     schedule:
       interval: "daily"
+  # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
