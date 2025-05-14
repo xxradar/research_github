@@ -12,7 +12,7 @@ def search_github(action, keyword, token):
     }
 
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=60)
         response.raise_for_status()
         data = response.json()
         return data
