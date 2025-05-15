@@ -1,25 +1,41 @@
-
 📋 Tool Security Audit Report:
 
-Below is a structured analysis of the tool descriptions, identifying potential issues that could lead to biased or incorrect tool selection by an AI model.
+### Analysis of Tool Descriptions
 
-| **Issue Type** | **Description** | **Examples** | **Recommendations** |
-|----------------|-----------------|--------------|---------------------|
+#### 1. Overlapping Functionality
 
-| **1. Overlapping Functionality** | Tools that perform similar actions, potentially confusing the model. | - `browser_navigate` and `puppeteer_navigate` both navigate to a URL. <br> - `browser_take_screenshot` and `puppeteer_screenshot` both take screenshots. <br> - `browser_click` and `puppeteer_click` both perform click actions. <br> - `browser_hover` and `puppeteer_hover` both hover over elements. <br> - `browser_select_option` and `puppeteer_select` both select options in dropdowns. | Clarify distinctions between similar tools, possibly by specifying unique features or contexts where each tool is preferable. |
+- **Browser and Puppeteer Tools:**
+  - **`browser_navigate` vs. `puppeteer_navigate`:** Both tools perform the same action of navigating to a URL. This overlap could confuse the LLM as to which tool to select for navigation tasks.
+  - **`browser_take_screenshot` vs. `puppeteer_screenshot`:** Both tools take screenshots, but the Puppeteer tool offers more specificity by allowing screenshots of specific elements.
+  - **`browser_click` vs. `puppeteer_click`:** Both tools perform click actions on a webpage.
+  - **`browser_hover` vs. `puppeteer_hover`:** Both tools perform hover actions on a webpage.
+  - **`browser_select_option` vs. `puppeteer_select`:** Both tools select options in dropdowns or elements with a select tag.
 
-| **2. Influencing or Persuasive Language** | Descriptions that subtly suggest preference or priority. | - `browser_snapshot`: "this is better than screenshot" suggests a preference for `browser_snapshot` over `browser_take_screenshot`. | Use neutral language to describe tool capabilities without suggesting superiority. |
+- **Predicted Precedence:**
+  - The LLM might prefer Puppeteer tools due to their specificity and the presence of keywords like "element" which might suggest more precise control.
 
-| **3. Crafted or Informal Tone** | Non-neutral wording such as second-person instructions or emotional framing. | - `browser_install`: "Call this if you get an error about the browser not being installed." <br> - `capture`: "You can use this if the human asks questions about their immediate environment, if you want to see the human or to examine an object they may be referring to or showing you." | Use formal, third-person language to maintain objectivity and neutrality. |
+#### 2. Influencing or Persuasive Language
 
-| **4. Attention-Seeking Wording** | Descriptions using exaggeration or marketing-style language. | - `browser_snapshot`: "this is better than screenshot" uses comparative language. | Avoid comparative or superlative language that implies one tool is superior to another. |
+- **`browser_snapshot`:** The description states "this is better than screenshot," which suggests a preference for using this tool over `browser_take_screenshot`.
 
-| **5. Predicted Precedence** | For overlapping tools, predict which tool the LLM would likely select and explain why. | - For navigation, `browser_navigate` might be selected over `puppeteer_navigate` due to the broader context of browser tools. <br> - For screenshots, `puppeteer_screenshot` might be selected due to its ability to capture specific elements, which is more detailed. <br> - For clicking, `puppeteer_click` might be selected due to the specificity of "element" in the description. | Ensure descriptions are equally detailed and specific to prevent unintended precedence. |
+#### 3. Crafted or Informal Tone
 
-| **6. Inconsistency in Tone or Structure** | Descriptions that don’t follow a consistent, formal, objective style. | - `browser_install` and `capture` use informal, second-person language, while most other descriptions are more formal. | Standardize the tone and structure across all tool descriptions to maintain consistency. |
+- **`browser_install`:** The description includes a second-person instruction "Call this if you get an error about the browser not being installed," which is informal and directive.
+- **`capture`:** The description uses second-person language "You can use this if the human asks questions..." which is informal and directive.
 
-**Overall Recommendations:**
-- Revise tool descriptions to eliminate overlapping functionality by clearly defining unique use cases or contexts.
-- Remove any language that suggests preference or superiority of one tool over another.
-- Ensure all descriptions are written in a formal, third-person tone to maintain neutrality.
-- Standardize the structure and style of descriptions to ensure consistency and clarity.
+#### 4. Attention-Seeking Wording
+
+- **`browser_snapshot`:** The phrase "this is better than screenshot" is attention-seeking and suggests superiority over another tool.
+- **`capture`:** The description includes multiple scenarios where the tool can be used, which might draw more attention compared to other tools with simpler descriptions.
+
+#### 5. Inconsistency in Tone or Structure
+
+- **General Observation:** Most descriptions are concise and objective, but some, like `browser_install` and `capture`, deviate with informal and directive language.
+- **Recommendation:** Standardize descriptions to maintain a formal and objective tone across all tools. Avoid second-person instructions and subjective comparisons.
+
+### Recommendations
+
+- **Standardize Descriptions:** Ensure all tool descriptions are written in a formal, objective tone without second-person instructions or subjective language.
+- **Clarify Overlapping Tools:** Provide additional context or criteria for when to use overlapping tools, such as specifying scenarios or advantages of one tool over another without using subjective language.
+- **Remove Persuasive Language:** Avoid language that suggests preference or superiority, such as "better than" or "use this if," to prevent bias in tool selection.
+- **Consistent Structure:** Use a consistent structure for all descriptions, focusing on the action performed by the tool without additional context or scenarios unless necessary for understanding the tool's function.
