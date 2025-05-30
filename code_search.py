@@ -2,6 +2,7 @@ import requests
 import sys
 import os
 import json
+from security import safe_requests
 
 def search_github(action, keyword, token):
     url = f"https://api.github.com/search/{action}?q={keyword}&sort=indexed&order=desc&per_page=100"
@@ -12,7 +13,7 @@ def search_github(action, keyword, token):
     }
 
     try:
-        response = requests.get(url, headers=headers)
+        response = safe_requests.get(url, headers=headers)
         response.raise_for_status()
         data = response.json()
         return data
